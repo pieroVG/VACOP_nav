@@ -62,6 +62,8 @@ ros2 launch rtabmap_localization map.launch.py
 
 RTAB-Map publie la carte à la connexion d’un abonné.
 
+![Rviz](images/rviz_ok.png)
+
 ## 7. Lancement de Nav2 (en cours)
 
 ```bash
