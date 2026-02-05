@@ -1,0 +1,35 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50
+
+    # publish joint states
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # velocity controllers for the rear wheels
+    rear_right_velocity_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints: ["j_ar_d"]
+      state_publish_rate: 50
+      action_monitor_rate: 10
+      constraints:
+        goal_time: 0.5
+
+    rear_left_velocity_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints: ["j_ar_g"]
+      state_publish_rate: 50
+      action_monitor_rate: 10
+      constraints:
+        goal_time: 0.5
+
+    # position controllers for steering (front wheels)
+    steer_right_position_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints: ["j_av_d"]
+      state_publish_rate: 50
+
+    steer_left_position_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints: ["j_av_g"]
+      state_publish_rate: 50

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="vacop">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.1139 0.0010278 0.2257"
+        rpy="0 0 0" />
+      <mass
+        value="832.23" />
+      <inertia
+        ixx="81.816"
+        ixy="0.0022707"
+        ixz="-6.4534"
+        iyy="436.62"
+        iyz="0.056579"
+        izz="471.64" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="base_footprint">
+  </link>
+
+  <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.1"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+  </joint>
+
+  <link
+    name="roue_ar_d">
+    <inertial>
+      <origin
+        xyz="-1.3859E-09 0.056621 2.1485E-09"
+        rpy="0 0 0" />
+      <mass
+        value="3.7093" />
+      <inertia
+        ixx="0.063239"
+        ixy="-1.7059E-10"
+        ixz="-2.577E-06"
+        iyy="0.11929"
+        iyz="1.2985E-10"
+        izz="0.063215" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_ar_d.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_ar_d.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j_ar_d"
+    type="continuous">
+    <origin
+      xyz="-0.64009 -0.4998 0.11495"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roue_ar_d" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="2" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="roue_ar_g">
+    <inertial>
+      <origin
+        xyz="1.7943E-09 -0.056621 1.8193E-09"
+        rpy="0 0 0" />
+      <mass
+        value="3.7093" />
+      <inertia
+        ixx="0.063239"
+        ixy="-1.9357E-10"
+        ixz="-2.5747E-06"
+        iyy="0.11929"
+        iyz="-9.2169E-11"
+        izz="0.063215" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_ar_g.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_ar_g.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j_ar_g"
+    type="continuous">
+    <origin
+      xyz="-0.64055 0.50495 0.11044"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roue_ar_g" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="10"
+      velocity="2" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="roue_av_d">
+    <inertial>
+      <origin
+        xyz="-1.4921E-06 0.038716 -6.1044E-05"
+        rpy="0 0 0" />
+      <mass
+        value="3.0485" />
+      <inertia
+        ixx="0.061634"
+        ixy="-2.1121E-06"
+        ixz="6.0041E-09"
+        iyy="0.11657"
+        iyz="-8.6617E-05"
+        izz="0.061634" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_av_d.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_av_d.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j_av_d"
+    type="revolute">
+    <origin
+      xyz="0.6106 -0.5557 0.11499"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roue_av_d" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.392"
+      upper="0.392"
+      effort="10"
+      velocity="2" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="roue_av_g">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_av_g.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vacop/meshes/roue_av_g.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j_av_g"
+    type="revolute">
+    <origin
+      xyz="0.6106 0.5557 0.11499"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roue_av_g" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.392"
+      upper="0.392"
+      effort="10"
+      velocity="2" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+</robot>
