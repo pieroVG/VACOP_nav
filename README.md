@@ -27,7 +27,7 @@ source install/setup.bash
 
 Source à refaire dans chaque nouveau terminal.
 
-## 5. Lancement de la localisation RTAB-Map
+## 4. Lancement de la localisation RTAB-Map
 
 La localisation utilise une **base RTAB-Map existante (`.db`)**
 
@@ -42,7 +42,7 @@ Fonctionnement :
 - **Pas d’odom pour l’instant**
 
 
-## 6. Lancement de l'urdf du VACOP et Rviz
+## 5. Lancement de l'urdf du VACOP et Rviz
 
 ```bash
 ros2 launch vacop display.launch.py
@@ -64,7 +64,7 @@ RTAB-Map publie la carte à la connexion d’un abonné.
 
 ![Rviz](images/rviz_ok.png)
 
-## 7. Lancement de Nav2 (en cours)
+## 6. Lancement de Nav2 (en cours)
 
 ```bash
 ros2 launch planif_locale nav2.launch.py
@@ -77,7 +77,7 @@ Objectif :
 Limitations :
 - pas d’odom réel
 
-## 8. Frames TF (état actuel)
+## 7. Frames TF (état actuel)
 
 ```
 map → odom → base_footprint
