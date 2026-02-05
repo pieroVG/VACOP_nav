@@ -25,6 +25,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'fake_odom = rtabmap_localization.fake_odom:main',
         ],
     },
 )

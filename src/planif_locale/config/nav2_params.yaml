@@ -11,6 +11,8 @@ controller_server:
     controller_frequency: 30.0
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
+      
+      cmd_vel_topic: /cmd_vel
       odom_topic: /odom
       map_frame: map
       robot_base_frame: base_link
