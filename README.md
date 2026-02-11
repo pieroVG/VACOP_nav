@@ -1,6 +1,6 @@
 # RTAB-Map + Nav2 (localisation et navigation locale)
 
-Ce dépôt met en place une **localisation basée sur une carte RTAB-Map existante** et une **navigation locale avec Nav2**, sans odométrie réelle pour l’instant.
+Ce dépôt met en place une **localisation basée sur une carte RTAB-Map existante** et une **navigation locale avec Nav2**
 
 ## 1. Prérequis
 
@@ -8,10 +8,16 @@ Ce dépôt met en place une **localisation basée sur une carte RTAB-Map existan
 - ROS 2 **Humble**  
 - Colcon  
 
-## 2. Installations de RTAB-Map et Nav2 (ROS2)
+## 2. Installations nécessaires
 
 ```bash
 sudo apt update
+sudo apt-get install ros-humble-controller-manager
+sudo apt-get install ros-humble-ros2-control
+sudo apt-get install ros-humble-xacro
+
+sudo apt install ros-humble-joint-state-publisher-gui
+sudo apt-get install ros-humble-ros2-controllers
 sudo apt install ros-humble-rtabmap-ros
 sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
@@ -27,7 +33,13 @@ source install/setup.bash
 
 Source à refaire dans chaque nouveau terminal.
 
-## 4. Lancement de la localisation RTAB-Map
+## 4. Lancement de l'urdf du VACOP et Rviz
+
+```bash
+ros2 launch vacop display.launch.py
+```
+
+## 5. Lancement de la localisation RTAB-Map
 
 La localisation utilise une **base RTAB-Map existante (`.db`)**
 
@@ -36,23 +48,15 @@ ros2 launch rtabmap_localization map.launch.py
 ```
 
 Fonctionnement :
-- Recharge la carte depuis `rtabmap.db`
-- Publie la frame `map`
+- Recharge la carte depuis `rtabmap.db` situé dans le dossier maps de `rtabmap_localization`
+- Publie la frame `base_footprint`
 - Publie la carte `/map` (via `map_assembler`)
-- **Pas d’odom pour l’instant**
+- Odométrie simulé avec `cmd_vel` pour l'instant
 
+### Paramètres RViz (déjà configuré)
 
-## 5. Lancement de l'urdf du VACOP et Rviz
-
-```bash
-ros2 launch vacop display.launch.py
-```
-
-### Paramètres RViz
-
-- Fixed Frame : map
+- Fixed Frame : base_footprint
 - Map > Topic > Durability Policy : Transient Local
-
 
 Si la carte n’apparaît pas :
 - relancer :
@@ -64,25 +68,28 @@ RTAB-Map publie la carte à la connexion d’un abonné.
 
 ![Rviz](images/rviz_ok.png)
 
-## 6. Lancement de Nav2 (en cours)
+## 6. Lancement de Nav2 et MPPI
 
 ```bash
 ros2 launch planif_locale nav2.launch.py
 ```
-
-Objectif :
+À utiliser avec `2D Goal Pose` de Rviz
 - planification locale
 - évitement d’obstacles
 
-Limitations :
-- pas d’odom réel
+## 7. Odométrie (Work In Progress)
 
-## 7. Frames TF (état actuel)
+```bash
+ros2 run odometry gps_odometry_node
+```
+Utilisation du GPS car problème avec les capteurs de vitesse des roues.
+
+## 8. Frames TF (état actuel)
 
 ```
-map → odom → base_footprint
+map → odom → base_footprint → base_link
 ```
 
 - `map → odom` : RTAB-Map  
-- `odom → base_footprint` : transform statique pour l'instant
+- `odom → base_footprint` 
 
