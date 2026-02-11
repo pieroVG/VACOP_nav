@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'planif_locale'
+package_name = 'odometry'
 
 setup(
     name=package_name,
@@ -13,13 +13,12 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-        (os.path.join('share', package_name, 'config'), glob(os.path.join('config/*.yaml'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='piero',
     maintainer_email='piero.vega-gutierrez@univ-tlse3.fr',
-    description='Navigation stack for VACOP',
+    description='Odométrie avec DualMotorsController ou GPS',
     license='TODO: License declaration',
     extras_require={
         'test': [
@@ -28,6 +27,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'odometry_node = odometry.odometry_node:main',
+            'gps_odometry_node = odometry.gps_odometry_node:main',
         ],
     },
 )
