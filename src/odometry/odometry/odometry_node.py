@@ -5,6 +5,7 @@ from geometry_msgs.msg import TransformStamped
 from tf2_ros import TransformBroadcaster
 import math
 from odometry.odometry import DifferentialOdometry
+from odometry.DualMotorController import DualMotorController
 
 class OdometryNode(Node):
     def __init__(self):
