@@ -12,7 +12,7 @@ find_package(trajectory_msgs REQUIRED)
 find_package(xacro REQUIRED)
 
 install(
-  DIRECTORY launch meshes urdf
+  DIRECTORY launch meshes urdf config
   DESTINATION share/${PROJECT_NAME}
 )
 

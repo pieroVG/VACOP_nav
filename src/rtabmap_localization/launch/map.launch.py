@@ -85,5 +85,5 @@ def generate_launch_description():
         static_map_to_odom,
         #static_odom_to_base,
         map_node,
-        #fake_odom,
+        fake_odom,
     ])

@@ -8,7 +8,7 @@ def generate_launch_description():
     pkg_path = get_package_share_directory('vacop')
 
     urdf_path = os.path.join(pkg_path, 'urdf', 'vacop.urdf')
-    rviz_config = os.path.join(pkg_path, 'urdf.rviz')
+    rviz_config = os.path.join(pkg_path, 'config', 'urdf.rviz')
 
     return LaunchDescription([
         Node(
