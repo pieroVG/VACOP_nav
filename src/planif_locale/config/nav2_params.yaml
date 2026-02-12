@@ -28,11 +28,12 @@ controller_server:
       regenerate_noises: false
       visualize: false
 
-      motion_model: "DiffDrive"   # Ackermann après
+      motion_model: "Ackermann"
 
-      vx_max: 0.6
-      vx_min: 0.0         # pas de marche arrière 
-      wz_max: 1.2
+      vx_max: 1.0
+      vx_min: -1.0   # marche arrière
+      min_x_velocity_threshold: 0.15
+      wz_max: 0.3
 
       ax_max: 2.0
       ax_min: -2.0
@@ -45,7 +46,7 @@ controller_server:
       wz_std: 0.3
 
       AckermannConstraints:
-        min_turning_r: 1.5
+        min_turning_r: 3.02 # Empattement / tan(theta)
 
       TrajectoryValidator:
         plugin: "mppi::DefaultOptimalTrajectoryValidator"
