@@ -55,7 +55,7 @@ Fonctionnement :
 
 ### Paramètres RViz (déjà configuré)
 
-- Fixed Frame : base_footprint
+- Fixed Frame : base_footprint pour suivre le VACOP et map sinon
 - Map > Topic > Durability Policy : Transient Local
 
 Si la carte n’apparaît pas :
