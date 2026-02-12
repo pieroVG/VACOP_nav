@@ -50,10 +50,28 @@ class FakeOdom(Node):
         dt = (now - self.last_time).nanoseconds * 1e-9
         self.last_time = now
 
-        # intégration simple
-        self.x += self.vx * math.cos(self.yaw) * dt
-        self.y += self.vx * math.sin(self.yaw) * dt
-        self.yaw += self.wz * dt
+        L = 1.25               # empattement
+        min_turning_r = 3.02   # rayon min correspondant à 22.5°
+
+        vx = self.vx
+        wz = self.wz
+
+        # Empêche rotation pure
+        if abs(vx) < 0.05:
+            wz = 0.0
+
+        # Applique contrainte de rayon minimum
+        if abs(wz) > 1e-5:
+            R = vx / wz
+            if abs(R) < min_turning_r:
+                R = math.copysign(min_turning_r, R)
+                wz = vx / R
+
+        # Intégration Ackermann
+        self.x += vx * math.cos(self.yaw) * dt
+        self.y += vx * math.sin(self.yaw) * dt
+        self.yaw += wz * dt
+
 
         # Odom msg
         odom = Odometry()
