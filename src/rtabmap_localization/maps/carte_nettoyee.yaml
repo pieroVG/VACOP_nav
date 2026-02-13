@@ -1,4 +1,4 @@
-image: rtabmap_26_02_1.pgm
+image: carte_nettoyee.pgm
 resolution: 0.05
 origin: [-37.675, -17.725, 0.0]
 negate: 0
