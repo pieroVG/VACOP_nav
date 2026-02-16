@@ -19,5 +19,5 @@ def generate_launch_description():
             parameters=[{'robot_description': open(urdf_path).read()}],
             output='screen'
         ),
-        #Node(package='rviz2',executable='rviz2',name='rviz2',arguments=['-d', rviz_config],output='screen')
+        Node(package='rviz2',executable='rviz2',name='rviz2',arguments=['-d', rviz_config],output='screen')
     ])

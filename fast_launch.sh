@@ -15,7 +15,15 @@ ros2 launch rtabmap_localization clean_map.launch.py;
 exec bash"
 sleep 2
 
-# Terminal 3 : NAV2
+# Terminal 2 : fake_odom
+gnome-terminal -- bash -c "
+source install/setup.bash;
+ros2 run odometry fake_odom.py;
+exec bash"
+sleep 2
+
+
+# Terminal 4 : NAV2
 gnome-terminal -- bash -c "
 source install/setup.bash;
 ros2 launch planif_locale nav2.launch.py;
