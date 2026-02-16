@@ -11,7 +11,7 @@ sleep 2
 # Terminal 2 : RTABMAP
 gnome-terminal -- bash -c "
 source install/setup.bash;
-ros2 launch rtabmap_localization map.launch.py;
+ros2 launch rtabmap_localization clean_map.launch.py;
 exec bash"
 sleep 2
 

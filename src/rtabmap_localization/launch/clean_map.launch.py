@@ -44,16 +44,9 @@ def generate_launch_description():
         }]
     )
 
-    fake_odom = Node(
-        package='rtabmap_localization',
-        executable='fake_odom',
-        name='fake_odom',
-        output='screen'
-    )
 
     return LaunchDescription([
         map_server,
         lifecycle_manager,
-        fake_odom,
         static_map_to_odom,
     ])

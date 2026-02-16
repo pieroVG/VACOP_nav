@@ -11,12 +11,7 @@ def generate_launch_description():
     rviz_config = os.path.join(pkg_path, 'config', 'urdf.rviz')
 
     return LaunchDescription([
-        Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            output='screen'
-        ),
+        #Node(package='joint_state_publisher_gui', executable='joint_state_publisher_gui',name='joint_state_publisher_gui',output='screen'),
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -24,11 +19,5 @@ def generate_launch_description():
             parameters=[{'robot_description': open(urdf_path).read()}],
             output='screen'
         ),
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            arguments=['-d', rviz_config],
-            output='screen'
-        )
+        #Node(package='rviz2',executable='rviz2',name='rviz2',arguments=['-d', rviz_config],output='screen')
     ])
