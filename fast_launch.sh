@@ -18,7 +18,7 @@ sleep 2
 # Terminal 2 : fake_odom
 gnome-terminal -- bash -c "
 source install/setup.bash;
-ros2 run odometry fake_odom.py;
+ros2 run odometry fake_odom;
 exec bash"
 sleep 2
 

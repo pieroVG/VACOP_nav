@@ -27,6 +27,8 @@ class GPSOdometry(Node):
 
         self.lat0 = None
         self.lon0 = None
+        self.last_yaw = 0.0
+
 
         self.prev_x = None
         self.prev_y = None
@@ -69,7 +71,11 @@ class GPSOdometry(Node):
         dy = y - self.prev_y
 
         v = math.sqrt(dx**2 + dy**2) / dt
-        yaw = math.atan2(dy, dx)
+        if math.sqrt(dx**2 + dy**2) > 0.05:
+            yaw = math.atan2(dy, dx)
+        else:
+            yaw = self.last_yaw
+
 
         self.publish_odometry(x, y, yaw, v, now)
 

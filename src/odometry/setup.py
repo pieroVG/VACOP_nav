@@ -27,7 +27,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'odometry_node = odometry.odometry_node:main',
             'gps_odometry_node = odometry.gps_odometry_node:main',
             'fake_odom = odometry.fake_odom:main',
         ],
