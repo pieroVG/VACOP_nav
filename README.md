@@ -19,6 +19,7 @@ sudo apt-get install ros-humble-xacro
 sudo apt install ros-humble-joint-state-publisher-gui
 sudo apt install ros-humble-ros2-controllers
 sudo apt install ros-humble-rtabmap-ros
+sudo apt-get install ros-humble-robot_localization
 sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
 
