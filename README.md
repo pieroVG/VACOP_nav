@@ -19,7 +19,7 @@ sudo apt-get install ros-humble-xacro
 sudo apt install ros-humble-joint-state-publisher-gui
 sudo apt install ros-humble-ros2-controllers
 sudo apt install ros-humble-rtabmap-ros
-sudo apt-get install ros-humble-robot_localization
+sudo apt install ros-humble-robot_localization
 sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
 
@@ -40,12 +40,12 @@ Source à refaire dans chaque nouveau terminal.
 ros2 launch vacop display.launch.py
 ```
 
-## 5. Lancement de la localisation RTAB-Map
+## 5. Lancement de la carte RTAB-Map
 
 La localisation utilise une **base RTAB-Map existante (`.db`)**
 
 ```bash
-ros2 launch rtabmap_localization map.launch.py
+ros2 launch rtabmap_localization clean_map.launch.py
 ```
 
 Fonctionnement :
@@ -62,7 +62,7 @@ Fonctionnement :
 Si la carte n’apparaît pas :
 - relancer :
 ```bash
-ros2 launch rtabmap_localization map.launch.py
+ros2 launch rtabmap_localization clean_map.launch.py
 ```
 
 RTAB-Map publie la carte à la connexion d’un abonné.
@@ -78,7 +78,7 @@ ros2 launch planif_locale nav2.launch.py
 - planification locale
 - évitement d’obstacles
 
-## 7. Odométrie (Work In Progress)
+## 7. Odométrie
 
 ```bash
 ros2 run odometry gps_odometry_node
