@@ -1,6 +1,6 @@
 # RTAB-Map + Nav2 (localisation et navigation locale)
 
-Ce dépôt met en place une **localisation basée sur une carte RTAB-Map existante** et une **navigation locale avec Nav2**
+Ce dépôt met en place une **localisation basée sur une carte existante** et une **navigation locale avec Nav2**
 
 ## 1. Prérequis
 
@@ -40,19 +40,19 @@ Source à refaire dans chaque nouveau terminal.
 ros2 launch vacop display.launch.py
 ```
 
-## 5. Lancement de la carte RTAB-Map
+## 5. Lancement de la carte 
 
-La localisation utilise une **base RTAB-Map existante (`.db`)**
+La localisation utilise une **base carte existante** ou le topic /map si déjà publié
 
 ```bash
 ros2 launch rtabmap_localization clean_map.launch.py
 ```
 
 Fonctionnement :
-- Recharge la carte depuis `rtabmap.db` situé dans le dossier maps de `rtabmap_localization`
+- Charge la carte située dans le dossier /maps de `rtabmap_localization`
 - Publie la frame `base_footprint`
-- Publie la carte `/map` (via `map_assembler`)
-- Odométrie simulé avec `cmd_vel` pour l'instant
+- Publie la carte `/map` 
+- Odométrie simulé avec `cmd_vel` pour la simulation
 
 ### Paramètres RViz (déjà configuré)
 
@@ -64,8 +64,6 @@ Si la carte n’apparaît pas :
 ```bash
 ros2 launch rtabmap_localization clean_map.launch.py
 ```
-
-RTAB-Map publie la carte à la connexion d’un abonné.
 
 ![Rviz](images/rviz_ok.png)
 
@@ -85,12 +83,39 @@ ros2 run odometry gps_odometry_node
 ```
 Utilisation du GPS car problème avec les capteurs de vitesse des roues.
 
-## 8. Frames TF (état actuel)
+## 8. Frames TF 
+
+Toute la navigation repose sur cette chaîne :
 
 ```
 map → odom → base_footprint → base_link
 ```
 
-- `map → odom` : RTAB-Map  
-- `odom → base_footprint` 
+Si une transformation manque ou est incorrecte,
+Nav2 et RViz ne fonctionneront pas correctement.
+
+
+**Carte / Localisation**
+
+```
+map → odom
+```
+
+Permet de positionner le robot dans la carte globale.
+
+**Odométrie**
+
+```
+odom → base_footprint
+```
+
+Donne le déplacement continu du robot.
+
+**VACOP (URDF)**
+
+```
+base_footprint → base_link
+```
+
+Définit la structure physique du robot.
 
