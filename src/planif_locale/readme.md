@@ -9,7 +9,7 @@ Il constitue le cœur décisionnel de la navigation.
 
 
 # MPPI (Model Predictive Path Integral)
-[text](https://docs.nav2.org/configuration/packages/configuring-mppic.html)
+[Documentation MPPI](https://docs.nav2.org/configuration/packages/configuring-mppic.html)
 
 Utilisé via Nav2 :
 - Génération de trajectoires candidates
