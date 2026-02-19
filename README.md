@@ -1,4 +1,4 @@
-# RTAB-Map + Nav2 (localisation et navigation locale)
+# Planification et navigation locale (avec affichage de carte)
 
 Ce dépôt met en place une **localisation basée sur une carte existante** et une **navigation locale avec Nav2**
 
@@ -40,9 +40,10 @@ Source à refaire dans chaque nouveau terminal.
 ros2 launch vacop display.launch.py
 ```
 
-## 5. Lancement de la carte 
+## 5. Lancement de la carte (pour la simulation)
 
-La localisation utilise une **base carte existante** ou le topic /map si déjà publié
+La carte doit être publiée sur le topic /map pour pouvoir lancer la planification.
+Elle peut être lancée avec cette commande si pas déjà publiée.
 
 ```bash
 ros2 launch rtabmap_localization clean_map.launch.py
