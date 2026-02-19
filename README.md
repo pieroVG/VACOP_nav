@@ -51,7 +51,6 @@ ros2 launch rtabmap_localization clean_map.launch.py
 
 Fonctionnement :
 - Charge la carte située dans le dossier /maps de `rtabmap_localization`
-- Publie la frame `base_footprint`
 - Publie la carte `/map` 
 - Odométrie simulé avec `cmd_vel` pour la simulation
 
