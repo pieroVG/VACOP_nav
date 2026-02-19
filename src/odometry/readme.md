@@ -17,6 +17,9 @@ Sortie :
 - `/odom`
 - TF `odom → base_footprint`
 
+`ros2 run odometry gps_odometry_node`
+`ros2 run odometry fake_odom` pour la simulation 
+
 # Prochaines étapes:
 - Implémenter odométrie roues (encodeurs effet Hall) une fois que les capteurs seront fonctionnels. Une piste est dans le dossier `/odometry/odom_motors`
 - Vérifier cohérence angle IMU
