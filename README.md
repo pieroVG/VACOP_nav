@@ -16,9 +16,8 @@ sudo apt-get install ros-humble-controller-manager
 sudo apt-get install ros-humble-ros2-control
 sudo apt-get install ros-humble-xacro
 
-sudo apt install ros-humble-joint-state-publisher-gui
+sudo apt install ros-humble-joint-state-publisher
 sudo apt install ros-humble-ros2-controllers
-sudo apt install ros-humble-rtabmap-ros
 sudo apt install ros-humble-robot_localization
 sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup
 ```
@@ -46,11 +45,11 @@ La carte doit être publiée sur le topic /map pour pouvoir lancer la planificat
 Elle peut être lancée avec cette commande si pas déjà publiée.
 
 ```bash
-ros2 launch rtabmap_localization clean_map.launch.py
+ros2 launch map_localization clean_map.launch.py
 ```
 
 Fonctionnement :
-- Charge la carte située dans le dossier /maps de `rtabmap_localization`
+- Charge la carte située dans le dossier /maps de `map_localization`
 - Publie la carte `/map` 
 - Odométrie simulé avec `cmd_vel` pour la simulation
 
@@ -62,7 +61,7 @@ Fonctionnement :
 Si la carte n’apparaît pas :
 - relancer :
 ```bash
-ros2 launch rtabmap_localization clean_map.launch.py
+ros2 launch map_localization clean_map.launch.py
 ```
 
 ![Rviz](images/rviz_ok.png)
@@ -78,10 +77,15 @@ ros2 launch planif_locale nav2.launch.py
 
 ## 7. Odométrie
 
+Pour la simulation :
+```bash
+ros2 run odometry fake_odom
+```
+
+Utilisation du GPS car problème avec les capteurs de vitesse des roues :
 ```bash
 ros2 run odometry gps_odometry_node
 ```
-Utilisation du GPS car problème avec les capteurs de vitesse des roues.
 
 ## 8. Frames TF 
 
@@ -95,13 +99,13 @@ Si une transformation manque ou est incorrecte,
 Nav2 et RViz ne fonctionneront pas correctement.
 
 
-**Carte / Localisation**
+**Carte**
 
 ```
 map → odom
 ```
 
-Permet de positionner le robot dans la carte globale.
+Permet de positionner le robot dans la carte.
 
 **Odométrie**
 
