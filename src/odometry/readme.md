@@ -18,6 +18,7 @@ Sortie :
 - TF `odom → base_footprint`
 
 `ros2 run odometry gps_odometry_node`
+
 `ros2 run odometry fake_odom` pour la simulation 
 
 # Prochaines étapes:
