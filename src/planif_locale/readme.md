@@ -20,7 +20,9 @@ Utilisé via Nav2 :
 # Paramètres principal : `nav2_params.yaml`
 Situé dans le dossier `config`.
 
-La configuration de l'angle de braquage à déjà été calculée pour le VACOP : `min_turning_r: 3.02`. Cependant un tunning sur les autres paramètres pourraient permettre une meilleure trajectoire, en prenant plus large sur les virages par exemple, ou plus grande distance de sécurité.
+La configuration de l'angle de braquage à déjà été calculée pour le VACOP : `min_turning_r: 3.02`. 
+
+Cependant un tunning sur les autres paramètres pourrait permettre  d'obtenir une meilleure trajectoire, en prenant plus large sur les virages par exemple, ou plus grande distance de sécurité.
 
 ## Points critiques
 
